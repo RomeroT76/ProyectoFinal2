@@ -1,4 +1,4 @@
-<!-- <div class="container">
+<div class="container">
     <div class="buscador">
         <label for="buscador"></label>
         <input type="text" id="buscador" placeholder="Titulo del libro*" [(ngModel)]="titulo" class="s-bar">
@@ -14,7 +14,7 @@
                             @if (libro.imageLinks != undefined) {
                                 <div class="libro-image">
                                     <img src="{{ libro.imageLinks.smallThumbnail}}" alt="imagen de libro">
-                                    <input type="button" value="Agregar Libro" class="button" (click)="guardarLibro(libro.title, libro.authors, libro.publisher, libro.description, libro.imageLinks)">
+                                    <!-- <input type="button" value="Agregar Libro" class="button" (click)="guardarLibro(libro.title, libro.authors, libro.publisher, libro.description, libro.imageLinks)"> -->
                                 </div>
                                 <div class="libro-details">
                                     <h2>{{ libro.title }}</h2>
@@ -30,4 +30,4 @@
             </ul>
         }
     </div>
-</div> -->
+</div>
