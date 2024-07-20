@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+
+    header{
+        text-decoration: none;
+        font-family: 'Nunito' , sans-serif;
+        width: 100%;
+        height: 90px;
+        background-color: orange;
+        // position: fixed; 
+        top: 0; 
+        left: 0;
+        z-index: 1000; 
+    }
+    .interior{
+        max-width: 100%;
+        padding: 0 10px;
+        margin: auto;
+    }
+
+    .logo{
+        margin-left: 10px;
+    }
+
+    .logo img{
+        height: 80px;
+        padding-top: 10px;
+    }
+    .logo img:hover{
+        transform: scale(1.1);
+    }
+    .navegacion{
+        float: right;
+        display: flex;
+        align-items: center;
+        min-height: 90px;
+        z-index: 1000;
+    }
+    .navegacion ul{
+        list-style: none;
+        padding: 0 10px;
+    }
+
+    .navegacion ul li{
+        display: inline-block;
+        position: relative;
+        transition: .3s linear;
+        z-index: 1000;
+    }
+    .navegacion ul li:hover{
+        transform: scale(1.1);
+    }
+    .navegacion ul li a{
+        color: #ffffff;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 12px 20px;
+        transition: .3s linear;
+        text-decoration: none;
+    }
+
+    .navegacion ul li a:hover{
+        transform: scale(1.1);
+    }
+    .navegacion ul li:hover .subindex{
+        display: block;
+    }
+    .navegacion .submenu .subindex{
+        display: none;
+        background: #fe911c;
+        position: absolute;
+        width: 100%;
+    }
+    .navegacion .submenu .subindex li{
+        display: block;
+        overflow: hidden;
+        border-bottom: none;
+    }
+    .navegacion .submenu .subindex li a{
+        display: block;
+        text-decoration: none;
+        font-size: 10px;
+    }
+    
+    @media screen and (max-width: 768px) {
+        .interior {
+            padding: 0 20px;
+        }
+    
+        .logo img {
+            height: 60px;
+        }
+    
+        .navegacion {
+            min-height: auto;
+        }
+    
+        .navegacion ul {
+            padding: 0;
+        }
+    
+        .navegacion ul li {
+            margin-left: 0; 
+        }
+    
+        .navegacion ul li a {
+            padding: 8px 16px; 
+            font-size: 10px; 
+        }
+    }

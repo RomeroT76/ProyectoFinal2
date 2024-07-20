@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.background {
+    background-image: url(https://r4.wallpaperflare.com/wallpaper/728/926/542/library-ladders-candles-shelves-wallpaper-a28152c01d26befb6a08f2c5c0f85942.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-family: "Nunito", sans-serif;
+}
+
+.container {
+    max-width: 700px;
+    width: 100%;
+    padding: 25px 30px;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
+}
+
+.title {
+    font-size: 25px;
+    font-weight: 500;
+    color: #fe9b31;
+}
+
+.container form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px 12px 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+}
+
+.form-group span {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.form-group input {
+    height: 40px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid white;
+    padding-left: 15px;
+    border-top-width: 2px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    color: #fe9b31;
+}
+
+.form-group input:focus, .form-group input:valid {
+    border-color: #fe9b31;
+}
+
+.button {
+    width: 100%;
+    height: 40px;
+    margin: 40px 0;
+}
+
+.button input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    cursor: pointer;
+    background-color: #fe9b31;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+}
+
+@media (max-width: 584px) {
+    .container {
+        max-width: 100%;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .container form {
+        max-height: 400px;
+        overflow-y: scroll;
+    }
+
+    .container form::-webkit-scrollbarl {
+        width: 0;
+    }
+
+    .button {
+        margin: 20px 0;
+    }
+}
