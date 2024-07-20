@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+.content {
+    background-image: url(https://r4.wallpaperflare.com/wallpaper/728/926/542/library-ladders-candles-shelves-wallpaper-a28152c01d26befb6a08f2c5c0f85942.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    font-family: "Nunito", sans-serif;
+    overflow: auto;
+}
+
+.usuario-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    margin: 5px auto;
+    border-radius: 15px;
+    border: 1px solid orange;
+    overflow: auto;
+    max-width: 600px;
+}
+
+.usuario-details{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+    color: white;
+}
+
+.btn-borrar{
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #f80;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-left: 15px;
+}
+
+.btn-editar{
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #f80;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-left: 15px;
+}
+
+p{
+    font-family: "Nunito", sans-serif;
+    color: orange;
+}

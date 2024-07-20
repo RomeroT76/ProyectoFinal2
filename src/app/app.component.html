@@ -1,2 +1,19 @@
+<div class="header">
+    
+    @if (role === 'admin') {
+        <app-nav-bar/>
+    }
 
-<router-outlet />
+    @else if (role === 'client') {
+        <app-nav-bar-users/>
+    }
+
+    @else {
+        <app-nav-bar-any/>
+    }
+
+</div>
+
+<div class="content">
+    <router-outlet />
+</div>

@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+
+.content-wrapper {
+    font-family: 'Nunito' , sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(https://r4.wallpaperflare.com/wallpaper/728/926/542/library-ladders-candles-shelves-wallpaper-a28152c01d26befb6a08f2c5c0f85942.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    max-width: 800px;
+    padding: 20px;
+}
+
+.content {
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.btn-register {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: orange;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-register:hover {
+    background-color: #fe911c;
+}
+
+/* Estilos responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .btn-register {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
