@@ -35,7 +35,7 @@ export class EdituserComponent {
       this.user.email = this.email;
       this.user.password = this.password;
       this.userService.updateUser(this.user).subscribe({
-        next: res => {
+        next: () => {
           this.router.navigate([""]);
           this.password = '';
           this.passwordC = '';

@@ -6,8 +6,8 @@
                     <p>Email: {{user.email}}</p>
                     <p>Rol:  {{user.rol}}</p>
                     <p>Contraseña: {{user.password}}</p> 
-                    <button class="btn-borrar">Borrar</button><br>
-                    <button class="btn-editar">Editar</button>
+                    <button class="btn-borrar" (click)="deleteUser(user.email)">Borrar</button><br>
+                    <button class="btn-editar" routerLink="/edituseradmin" (click)="sendCredentials(user.email, user.rol)">Editar</button>
                 </div>
             </div>
         }

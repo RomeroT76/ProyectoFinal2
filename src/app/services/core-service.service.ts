@@ -8,10 +8,18 @@ export class CoreServiceService {
 
   private ROL: string;
   private oROL: BehaviorSubject<string>;
+  private euaEMAIL: string;
+  private euaOEMAIL: BehaviorSubject<string>;
+  private euaROL: string;
+  private euaOROL: BehaviorSubject<string>;
 
   constructor() { 
     this.ROL = "";
-    this.oROL =new BehaviorSubject<string>("");
+    this.euaROL = "";
+    this.euaEMAIL = "";
+    this.oROL = new BehaviorSubject<string>("");
+    this.euaOROL = new BehaviorSubject<string>("");
+    this.euaOEMAIL = new BehaviorSubject<string>("");
   }
 
   setRol(rol: string) {
@@ -21,5 +29,23 @@ export class CoreServiceService {
 
   getRol() {
     return this.oROL.asObservable();
+  }
+
+  setEuaRol(rol: string) {
+    this.euaROL = rol;
+    this.euaOROL.next(this.euaROL);
+  }
+
+  getEuaRol() {
+    return this.euaOROL.asObservable();
+  }
+
+  setEuaEmail(email: string) {
+    this.euaEMAIL = email;
+    this.euaOEMAIL.next(this.euaEMAIL);
+  }
+
+  getEuaEmail() {
+    return this.euaOEMAIL.asObservable();
   }
 }

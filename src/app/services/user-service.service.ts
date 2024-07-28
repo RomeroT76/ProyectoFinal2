@@ -11,6 +11,7 @@ export class UserServiceService {
   private CREATE_USER_URL: string = 'http://localhost:8080/ProyectoFinalBackend/api/user/create';
   private UPDATE_USER_URL: string  = 'http://localhost:8080/ProyectoFinalBackend/api/user/update';
   private ALL_USERS_URL: string  = 'http://localhost:8080/ProyectoFinalBackend/api/user';
+  private DELETE_USER_URL: string = 'http://localhost:8080/ProyectoFinalBackend/api/user/delete/';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -24,5 +25,9 @@ export class UserServiceService {
 
   getUsers() {
     return this.httpClient.get(this.ALL_USERS_URL);
+  }
+
+  deleteUser(email: string) {
+    return this.httpClient.delete(this.DELETE_USER_URL + `${email}`)
   }
 }
