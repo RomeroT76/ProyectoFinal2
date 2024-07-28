@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { LoginServiceService } from '../../services/login-service.service';
+import { CoreServiceService } from '../../services/core-service.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,9 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private loginService: LoginServiceService) { }
+  constructor(private loginService: LoginServiceService, 
+    private router: Router,
+    private coreService: CoreServiceService) { }
 
   login(): void {
     if (this.email != '' && this.password != '') {
@@ -23,6 +26,9 @@ export class LoginComponent {
           this.loginService.getToken(res).subscribe({
             next: res => {
              this.loginService.setToken(res.token);
+             this.coreService.setRol(this.loginService.getPayload().role)
+             alert("Inicio de sesion exitoso");
+             this.router.navigate(['']);
             }
           })
         },

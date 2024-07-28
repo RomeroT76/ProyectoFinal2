@@ -5,9 +5,9 @@
     <button (click)="setRole('guest')">Set Guest Role</button>
   </div> -->
   
-  <app-nav-bar *ngIf="role === 'admin'"></app-nav-bar>
-  <app-nav-bar-users *ngIf="role === 'client'"></app-nav-bar-users>
-  <app-nav-bar-any *ngIf="role === 'guest'"></app-nav-bar-any>
+  <app-nav-bar *ngIf="role === 'ADMIN'"></app-nav-bar>
+  <app-nav-bar-users *ngIf="role === 'CLIENT'"></app-nav-bar-users>
+  <app-nav-bar-any *ngIf="role === ''"></app-nav-bar-any>
   
   <div class="content">
     <router-outlet></router-outlet>

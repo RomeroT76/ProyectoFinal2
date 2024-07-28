@@ -5,7 +5,7 @@
 
             <div class="form-group">
                 <span>Correo Electronico: </span>
-                <input type="email" id="correo" placeholder="Ingrese su correo elecronico*" [(ngModel)]="mail"
+                <input type="email" id="correo" placeholder="Ingrese su correo elecronico*" [(ngModel)]="email"
                     [ngModelOptions]="{standalone: true}">
             </div>
 
@@ -22,15 +22,7 @@
             </div>
 
             <div class="button">
-                <!-- @if (currentRol === '') {
-                <input type="button" value="Registrarse" (click)="registrar()" routerLink="/login">
-                }
-                @else if (currentRol === 'client') {
-                <input type="button" value="Modificar" (click)="modificar()" routerLink="">
-                }
-                @else {
-                <input type="button" value="Modificar" (click)="modificar()" routerLink="/ugestion">
-                } -->
+                <input type="button" value="Registrarse" (click)="createUSer()">
             </div>
         </form>
     </div>

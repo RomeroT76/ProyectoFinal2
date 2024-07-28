@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginServiceService {
 
-  constructor(private httpClient: HttpClient, private router: Router) { }
+  constructor(private httpClient: HttpClient) { }
 
   private LOGIN_URL: string = 'http://localhost:8080/ProyectoFinalBackend/api/auth/login';
   // Se debe pasar como parametros adicionales a la ruta el usuario y contraseña a la ruta
@@ -34,7 +33,6 @@ export class LoginServiceService {
       return payload;
     } else {
       alert('Token Invalido');
-      this.router.navigate(['/login']);
     }
   }
 }

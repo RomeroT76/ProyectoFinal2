@@ -4,8 +4,8 @@ import { RouterOutlet } from '@angular/router';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { NavBarUsersComponent } from './components/nav-bar-users/nav-bar-users.component';
 import { NavBarAnyComponent } from './components/nav-bar-any/nav-bar-any.component';
-import { AuthService } from './services/auth.service'; // Asegúrate de ajustar la ruta según la estructura de tu proyecto
 import { CommonModule } from '@angular/common';
+import { CoreServiceService } from './services/core-service.service';
 
 @Component({
   selector: 'app-root',
@@ -16,14 +16,23 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'proyecto-final';
-  role: 'admin' | 'client' | 'guest';
+  role: string = 'GUEST';
 
-  constructor(private authService: AuthService) {
-    this.role = this.authService.getRole();
+  constructor(private coreService: CoreServiceService) { }
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    
+
+    this.coreService.getRol().subscribe(
+        data => {
+          this.role = data;
+        }
+    );
   }
 
-  setRole(role: 'admin') {
-    this.authService.setRole(role);
-    this.role = role; // Actualiza el rol en el componente
+  getSessionData(): void {
+    
   }
 }
