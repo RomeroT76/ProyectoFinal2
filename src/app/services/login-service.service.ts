@@ -34,8 +34,7 @@ export class LoginServiceService {
       const payload = JSON.parse(atob(token.split('.')[1]));
       return payload;
     } else {
-      alert('Su sesion ha expirado');
-      this.router.navigate(['login']);
+      this.router.navigate(['']);
     }
   }
 

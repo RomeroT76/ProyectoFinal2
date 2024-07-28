@@ -1,15 +1,13 @@
 <div class="content">
     <ul>
-        @for (usu of usuarios; track usu) {
+        @for (user of users; track user) {
             <div class="usuario-content">
                 <div class="usurio-details">
-                    <p>Id: {{usu.id}}</p>
-                    <p>Nombre: {{usu.name}}</p>
-                    <p>Email: {{usu.mail}}</p>
-                    <p>Rol:  {{usu.rol}}</p>
-                    <p>Contraseña: {{usu.password}}</p> 
-                    <!-- <button class="btn-borrar" (click)="borrar(usu.id)">Borrar</button><br> -->
-                    <button class="btn-editar" (click)="obtenerUsuario(usu.id)" routerLink="/edituseradmin">Editar</button>
+                    <p>Email: {{user.email}}</p>
+                    <p>Rol:  {{user.rol}}</p>
+                    <p>Contraseña: {{user.password}}</p> 
+                    <button class="btn-borrar">Borrar</button><br>
+                    <button class="btn-editar">Editar</button>
                 </div>
             </div>
         }
