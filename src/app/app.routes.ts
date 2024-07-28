@@ -9,6 +9,7 @@ import { EdituserComponent } from './pages/edituser/edituser.component';
 import { EdituseradminComponent } from './pages/edituseradmin/edituseradmin.component';
 import { FavoriteComponent } from './pages/favorite/favorite.component';
 import { CatalogouserComponent } from './pages/catalogouser/catalogouser.component';
+import { EditlibroComponent } from './pages/editlibro/editlibro.component';
 
 export const routes: Routes = [
     {path: 'login/register', title: 'Registro', component:RegisterComponent},
@@ -21,5 +22,6 @@ export const routes: Routes = [
     {path: 'edituser', title: 'Editar usuario', component:EdituserComponent},
     {path: 'edituseradmin', title: 'Editar usuario admin', component:EdituseradminComponent},
     {path: 'favorite', title: 'Mis libros', component: FavoriteComponent},
+    {path: 'editlibro', title: 'Editar libro', component: EditlibroComponent},
     {path: '' , component:InicioComponent}
 ];

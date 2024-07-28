@@ -1,29 +1,29 @@
+// app.component.ts
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { NavBarUsersComponent } from './components/nav-bar-users/nav-bar-users.component';
 import { NavBarAnyComponent } from './components/nav-bar-any/nav-bar-any.component';
-import { ComunicacionService } from './services/comunicacion.service';
+import { AuthService } from './services/auth.service'; // Asegúrate de ajustar la ruta según la estructura de tu proyecto
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,NavBarComponent, NavBarUsersComponent, NavBarAnyComponent],
+  imports: [RouterOutlet, NavBarComponent, NavBarUsersComponent, NavBarAnyComponent,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'proyecto-final';
-  role: any = ''
+  role: 'admin' | 'client' | 'guest';
 
-  constructor(private comunicacionService: ComunicacionService) { }
+  constructor(private authService: AuthService) {
+    this.role = this.authService.getRole();
+  }
 
-  ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    this.comunicacionService.suscribe().subscribe(data => {
-      console.log(data);
-      this.role = data;
-    })
+  setRole(role: 'admin') {
+    this.authService.setRole(role);
+    this.role = role; // Actualiza el rol en el componente
   }
 }
