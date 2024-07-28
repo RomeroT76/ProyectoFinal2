@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { LoginServiceService } from '../../services/login-service.service';
+import { CoreServiceService } from '../../services/core-service.service';
 
 @Component({
   selector: 'app-nav-bar-users',
@@ -9,4 +11,15 @@ import { RouterLink } from '@angular/router';
   styleUrl: './nav-bar-users.component.scss'
 })
 export class NavBarUsersComponent {
+
+  constructor(private router: Router,
+    private coreService: CoreServiceService
+  ) { }
+
+  logOut(): void {
+    alert("Cerrando sesion");
+    localStorage.clear();
+    this.coreService.setRol("");
+    this.router.navigate([""]);
+  }
 }

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,7 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class LoginServiceService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, 
+    private router: Router) { }
 
   private LOGIN_URL: string = 'http://localhost:8080/ProyectoFinalBackend/api/auth/login';
   // Se debe pasar como parametros adicionales a la ruta el usuario y contraseña a la ruta
@@ -32,7 +34,12 @@ export class LoginServiceService {
       const payload = JSON.parse(atob(token.split('.')[1]));
       return payload;
     } else {
-      alert('Token Invalido');
+      alert('Su sesion ha expirado');
+      this.router.navigate(['login']);
     }
+  }
+
+  clearToken(): void {
+    localStorage.clear();
   }
 }
