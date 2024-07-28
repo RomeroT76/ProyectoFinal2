@@ -12,14 +12,6 @@ import { ComunicacionService } from '../../services/comunicacion.service';
 export class CatalogoComponent {
 
   libros: any
-  rol: string;
-
-  constructor(private comunicacionService: ComunicacionService) {
-    this.rol = ''
-    this.comunicacionService.suscribe().subscribe(data => {
-      this.rol = data;
-    })
-  }
 
   // ngOnInit(): void {
   //   this.fireStoreService.obtenerLibros().then(data => {
