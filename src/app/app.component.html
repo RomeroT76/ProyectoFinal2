@@ -1,19 +1,15 @@
-<div class="header">
-    
-    @if (role === 'admin') {
-        <app-nav-bar/>
-    }
-
-    @else if (role === 'client') {
-        <app-nav-bar-users/>
-    }
-
-    @else {
-        <app-nav-bar-any/>
-    }
-
-</div>
-
-<div class="content">
-    <router-outlet />
-</div>
+<!-- app.component.html -->
+<!-- <div>
+    <button (click)="setRole('admin')">Set Admin Role</button>
+    <button (click)="setRole('client')">Set User Role</button>
+    <button (click)="setRole('guest')">Set Guest Role</button>
+  </div> -->
+  
+  <app-nav-bar *ngIf="role === 'admin'"></app-nav-bar>
+  <app-nav-bar-users *ngIf="role === 'client'"></app-nav-bar-users>
+  <app-nav-bar-any *ngIf="role === 'guest'"></app-nav-bar-any>
+  
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  
