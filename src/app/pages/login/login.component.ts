@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { ComunicacionService } from '../../services/comunicacion.service';
+import { LoginServiceService } from '../../services/login-service.service';
 
 @Component({
   selector: 'app-login',
@@ -11,34 +11,25 @@ import { ComunicacionService } from '../../services/comunicacion.service';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  users: any
-  user: any
-  password: any;
+  email: string = '';
+  password: string = '';
 
-  constructor(private comunicacionService: ComunicacionService) { }
+  constructor(private loginService: LoginServiceService) { }
 
-  // ngOnInit(): void {
-  //   this.fireStoreService.obtenerUsuarios().then (data => {
-  //     this.users = data.docs.map((doc: any) => {
-  //       return {
-  //         id: doc.id,
-  //         ...doc.data()
-  //       }
-  //     })
-  //   })
-    
-  // }
-
-  verificarUsuario() {
-    this.users.map((data: any) => {
-     
-      if(this.user === data.userName && this.password === data.password) {
-        this.comunicacionService.setValue(data.rol);
-        this.comunicacionService.setUValue(data.userName);
-        this.comunicacionService.setId(data.id);
-      }
-    })
+  login(): void {
+    if (this.email != '' && this.password != '') {
+      this.loginService.verifyCredentials(this.email, this.password).subscribe({
+        next: res => {
+          this.loginService.getToken(res).subscribe({
+            next: res => {
+             this.loginService.setToken(res.token);
+            }
+          })
+        },
+        error: e => {
+          alert(e.error);
+        }
+      });
+    } 
   }
-
-
 }
