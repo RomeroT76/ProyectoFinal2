@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { BookServiceService } from '../../services/book-service.service';
+import { BookSharedService } from '../../services/bookshared.service';
 
 @Component({
   selector: 'app-catalogouser',
@@ -8,22 +10,21 @@ import { Component } from '@angular/core';
   styleUrl: './catalogouser.component.scss'
 })
 export class CatalogouserComponent {
+  catalog: any;
 
-  libros: any
+  constructor(private bookService: BookServiceService, private bookSharedService: BookSharedService) {}
 
-    // ngOnInit(): void {
-    //   this.fireStoreService.obtenerLibros().then(data => {
-    //     this.libros = data.docs.map((doc: any) => {
-    //       return {
-    //         id: doc.id,
-    //         ...doc.data()
-    //       }
-    //     })
-    //   })
-    // }
+  ngOnInit(): void {
+    this.getAddedBooks();
+  }
 
-    // borrarlibro(id: string) {
-    //   this.fireStoreService.borrarLibro(id);
-    //   this.ngOnInit()
-    // }
+  getAddedBooks() {
+    this.bookService.getBoks().subscribe({
+      next: res => {
+        this.catalog = res;
+      },
+      error: err => console.log(err)
+    });
+  }
+
 }
