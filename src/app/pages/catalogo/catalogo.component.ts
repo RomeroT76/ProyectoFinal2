@@ -23,6 +23,7 @@ export class CatalogoComponent {
   getAddedBooks() {
     return this.bookService.getBoks().subscribe({
       next: res => {
+        
         this.catalog = res;
       },
       error: err => console.log(err)

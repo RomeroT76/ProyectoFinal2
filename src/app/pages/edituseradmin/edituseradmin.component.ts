@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { Usuario } from '../../domain/Usuario';
-import { ComunicacionService } from '../../services/comunicacion.service';
 import { User } from '../../domain/User';
 import { CoreServiceService } from '../../services/core-service.service';
 import { UpperCasePipe } from '@angular/common';

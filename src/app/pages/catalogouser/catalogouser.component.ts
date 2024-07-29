@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ComunicacionService } from '../../services/comunicacion.service';
 
 @Component({
   selector: 'app-catalogouser',
