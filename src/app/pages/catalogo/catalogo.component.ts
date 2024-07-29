@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-
-import { ComunicacionService } from '../../services/comunicacion.service';
+import { BookServiceService } from '../../services/book-service.service';
 
 @Component({
   selector: 'app-catalogo',
@@ -11,21 +10,22 @@ import { ComunicacionService } from '../../services/comunicacion.service';
 })
 export class CatalogoComponent {
 
-  libros: any
+  catalog: any;
 
-  // ngOnInit(): void {
-  //   this.fireStoreService.obtenerLibros().then(data => {
-  //     this.libros = data.docs.map((doc: any) => {
-  //       return {
-  //         id: doc.id,
-  //         ...doc.data()
-  //       }
-  //     })
-  //   })
-  // }
+  constructor(private bookService: BookServiceService) {}
 
-  // borrarlibro(id: string) {
-  //   this.fireStoreService.borrarLibro(id);
-  //   this.ngOnInit()
-  // }
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.getAddedBooks();
+  }
+
+  getAddedBooks() {
+    return this.bookService.getBoks().subscribe({
+      next: res => {
+        this.catalog = res;
+      },
+      error: err => console.log(err)
+    });
+  }
 }

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { BooksServiceService } from '../../services/books-service.service';
 import { FormsModule } from '@angular/forms';
-import { Libro } from '../../domain/Libro';
-
+import { BooksApiService } from '../../services/books-api.service';
+import { BookServiceService } from '../../services/book-service.service';
+import { Book } from '../../domain/Book';
 
 @Component({
   selector: 'app-buscador',
@@ -13,39 +13,42 @@ import { Libro } from '../../domain/Libro';
 })
 export class BuscadorComponent {
   booksData: any;
-  titulo: string = '';
-  libros: any[] = []
-  libro? : Libro
+  name: string = '';
+  books: any[] = []
+  book?: Book
 
-  constructor(private booksService: BooksServiceService) { }
+  constructor(private booksApiService: BooksApiService,
+    private bookService: BookServiceService
+  ) { }
 
   ngOnInit(): void {
 
   }
 
-  buscarLibros() {
-    this.libros = []
-    this.booksService.obtenerLibros(this.titulo).subscribe(data => {
+  searchBook() {
+    this.books = []
+    this.booksApiService.getBooks(this.name).subscribe(data => {
       this.booksData = Object.assign({}, data)
-
       this.booksData.items.map((item: any) => {
-        console.log(item.volumeInfo);
-        this.libros.push(item.volumeInfo)
-        console.log(`agregando ${item.volumeInfo.title}`);
+        this.books.push(item.volumeInfo)
       })
     })
-    this.titulo = ''
+    this.name = ''
   }
-  // guardarLibro(title:any, authors: any, publisher: any,  description: any, imageLink: any) {
-  //   this.libro = new Libro()
-  //   this.libro.title = title
-  //   this.libro.authors = authors
-  //   this.libro.publisher = publisher 
-  //   this.libro.description = description
-  //   this.libro.imageLink = imageLink
-  //   this.fireStoreService.guardarLibro(this.libro)
-  //   alert('libro agregado correctamente')
-  //   this.libro = undefined
-  // }
 
+  addBook(name: string, genere: string, image: string, author: string) {
+    this.book = new Book();
+    this.book.name = name;
+    this.book.genere = genere;
+    this.book.image = image;
+    this.book.author = author;
+    this.bookService.saveBook(this.book).subscribe({
+      next: () => {
+        alert("Libro agregado correctamente");
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
+  }
 }
