@@ -8,7 +8,9 @@
 
                     <div class="libro-image">
                         <img src="{{ book.image}}" alt="imagen de libro">                   
-                        <!-- <button class="btn-borrar" (click)="borrarlibro(libro.id)">Borrar</button><br> -->
+                        <button class="btn-borrar" (click)="deleteBook(book.id)">Borrar</button><br>
+                        <button class="btn-actualizar" (click)="updateBook(book)">Actualizar</button><br>
+                        <a routerLink="/editlibro">Editar</a>
                     </div>
                     <div class="libro-details">
                         <h2>{{ book.name }}</h2>
