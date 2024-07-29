@@ -1,6 +1,41 @@
 <div class="container">
-    <div class="content">
+    <div class="filter-container">
+        <div class="filter-group">
+            <label for="title">Buscar por título</label>
+            <select id="availability">
+                <option value="">Todos las títulos</option>
+                <option value="">Star Wars</option>
+                <option value="">Harry Potter</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="author">Buscar por autor</label>
+            <select id="availability">
+                <option value="">Todos los autores</option>
+                <option value="">Medardo Silva</option>
+                <option value="">Ruben Dario</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="genere">Buscar por género</label>
+            <select id="availability">
+                <option value="">Todos los generos</option>
+                <option value="">Romance</option>
+                <option value="">Ciencia Ficción</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="availability">Buscar por disponibilidad</label>
+            <select id="availability">
+                <option value="">Todas las disponibilidades</option>
+                <option value="disponible">Disponible</option>
+                <option value="no-disponible">No Disponible</option>
+            </select>
+        </div>
+        <button class="btn-aplicar">Aplicar Filtros</button>
+    </div>
 
+    <div class="content">
         <ul>
             @for (book of catalog; track book) {
             <li>
@@ -25,6 +60,5 @@
             </li>
             }
         </ul>
-
-</div>
+    </div>
 </div>
