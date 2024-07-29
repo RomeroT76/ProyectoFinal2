@@ -10,6 +10,7 @@ import { EdituseradminComponent } from './pages/edituseradmin/edituseradmin.comp
 import { FavoriteComponent } from './pages/favorite/favorite.component';
 import { CatalogouserComponent } from './pages/catalogouser/catalogouser.component';
 import { EditlibroComponent } from './pages/editlibro/editlibro.component';
+import { HistoryComponent } from './pages/history/history.component';
 
 export const routes: Routes = [
     {path: 'login/register', title: 'Registro', component:RegisterComponent},
@@ -23,5 +24,6 @@ export const routes: Routes = [
     {path: 'edituseradmin', title: 'Editar usuario admin', component:EdituseradminComponent},
     {path: 'favorite', title: 'Mis libros', component: FavoriteComponent},
     {path: 'editlibro', title: 'Editar libro', component: EditlibroComponent},
+    {path: 'history', title: 'Historial', component: HistoryComponent},
     {path: '' , component:InicioComponent}
 ];
