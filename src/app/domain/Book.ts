@@ -3,5 +3,5 @@ export class Book {
     genere?: string;
     image?: string;
     author?: string;
-    availability: boolean = true;
+    availability?: string;
 }
