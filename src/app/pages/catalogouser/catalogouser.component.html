@@ -1,64 +1,75 @@
-<div class="container">
-    <div class="filter-container">
-        <div class="filter-group">
-            <label for="title">Buscar por título</label>
-            <select id="availability">
-                <option value="">Todos las títulos</option>
-                <option value="">Star Wars</option>
-                <option value="">Harry Potter</option>
-            </select>
-        </div>
-        <div class="filter-group">
-            <label for="author">Buscar por autor</label>
-            <select id="availability">
-                <option value="">Todos los autores</option>
-                <option value="">Medardo Silva</option>
-                <option value="">Ruben Dario</option>
-            </select>
-        </div>
-        <div class="filter-group">
-            <label for="genere">Buscar por género</label>
-            <select id="availability">
-                <option value="">Todos los generos</option>
-                <option value="">Romance</option>
-                <option value="">Ciencia Ficción</option>
-            </select>
-        </div>
-        <div class="filter-group">
-            <label for="availability">Buscar por disponibilidad</label>
-            <select id="availability">
-                <option value="">Todas las disponibilidades</option>
-                <option value="disponible">Disponible</option>
-                <option value="no-disponible">No Disponible</option>
-            </select>
-        </div>
-        <button class="btn-aplicar">Aplicar Filtros</button>
-    </div>
-
-    <div class="content">
-        <ul>
-            @for (book of catalog; track book) {
-            <li>
-                <div class="libros-content">
-
-                    <div class="libro-image">
-                        <img src="{{ book.image}}" alt="imagen de libro">                   
-                        <!-- <button class="btn-borrar" (click)="deleteBook(book.id)">Borrar</button><br>
-                        <button class="btn-editar" (click)="updateBook(book)">Editar</button><br> -->
-                    </div>
-                    <div class="libro-details">
-                        <h2>{{ book.name }}</h2>
-                        <br>
-                        <h4>{{ book.genere }}</h4>
-                        <br>
-                        <h4>{{ book.author }}</h4>
-                        <br>
-                        <h4>{{ book.availability }}</h4>
-                    </div>
-
+<div class="body">
+    <div class="container">
+        <div class="filter">
+            <div class="dropdown">
+                <button class="dropdown-toggle">Autor</button>
+                <div class="dropdown-menu">
+                    <ul>
+                        @for (author of authors; track author) {
+                        <li><a (click)="searchByAuthor(author)">{{ author }}</a></li>
+                        }
+                    </ul>
                 </div>
-            </li>
-            }
-        </ul>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-toggle">Titulo</button>
+                <div class="dropdown-menu">
+                    <ul>
+                        @for (title of titles; track title) {
+                        <li><a (click)="searchByName(title)">{{ title }}</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-toggle">Categoria</button>
+                <div class="dropdown-menu">
+                    <ul>
+                        @for (genere of categories; track genere) {
+                        <li><a (click)="searchByGenere(genere)">{{ genere }}</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-toggle">Disponibilidad</button>
+                <div class="dropdown-menu">
+                    <a>Disponible</a>
+                    <a>No disponible</a>
+                    <a>Reservado</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="content">
+            <ul>
+                @if (result != []) {
+                @for (book of result; track book) {
+                <li>
+                    <div class="libros-content">
+
+                        <div class="libro-image">
+                            <img src="{{ book.image}}" alt="imagen de libro">
+                            <button class="btn-aplicar">pedir</button><br>
+                        </div>
+                        <div class="libro-details">
+                            <h2>{{ book.name }}</h2>
+                            <br>
+                            <h4>{{ book.genere }}</h4>
+                            <br>
+                            <h4>{{ book.author }}</h4>
+                            <br>
+                            <h4>{{ book.availability }}</h4>
+                        </div>
+
+                    </div>
+                </li>
+                }
+                }
+            </ul>
+        </div>
     </div>
 </div>

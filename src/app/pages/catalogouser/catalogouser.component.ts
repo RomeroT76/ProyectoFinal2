@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BookServiceService } from '../../services/book-service.service';
 import { BookSharedService } from '../../services/bookshared.service';
+import { getLocaleMonthNames } from '@angular/common';
 
 @Component({
   selector: 'app-catalogouser',
@@ -10,7 +11,12 @@ import { BookSharedService } from '../../services/bookshared.service';
   styleUrl: './catalogouser.component.scss'
 })
 export class CatalogouserComponent {
-  catalog: any;
+  result: any[] = [];
+  authors: any[] = [];
+  titles: any[] = [];
+  categories: any[] = [];
+  bookData: any;
+  
 
   constructor(private bookService: BookServiceService, private bookSharedService: BookSharedService) {}
 
@@ -19,12 +25,60 @@ export class CatalogouserComponent {
   }
 
   getAddedBooks() {
-    this.bookService.getBoks().subscribe({
-      next: res => {
-        this.catalog = res;
-      },
-      error: err => console.log(err)
-    });
+    this.bookService.getBoks().subscribe(
+      data => {
+        this.bookData = data;
+        this.bookData.map(
+          (book:any) => {
+            this.authors.push(book.author);
+            this.titles.push(book.name);
+            this.categories.push(book.genere);
+          }
+        )
+      }
+    );
+  }
+
+  searchByGenere(genere: string) {
+    this.result = [];
+    this.bookService.searchByGenere(genere).subscribe(
+      data => {
+        this.bookData = data;
+        this.bookData.map(
+          (book:any) => {
+            this.result.push(book);
+          }
+        );
+      }
+    );
+  }
+
+  searchByName(name: string) {
+    this.result = [];
+    this.bookService.searchByName(name).subscribe(
+      data => {
+        this.bookData = data;
+        this.bookData.map(
+          (book:any) => {
+            this.result.push(book);
+          }
+        );
+      }
+    );
+  }
+
+  searchByAuthor(author: string) {
+    this.result = [];
+    this.bookService.searchByAuthor(author).subscribe(
+      data => {
+        this.bookData = data;
+        this.bookData.map(
+          (book:any) => {
+            this.result.push(book);
+          }
+        );
+      }
+    );
   }
 
 }

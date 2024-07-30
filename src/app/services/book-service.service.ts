@@ -13,6 +13,9 @@ export class BookServiceService {
   private BOOKS_URL = 'http://localhost:8080/ProyectoFinalBackend/api/book';
   private DELETE_BOOK_URL = 'http://localhost:8080/ProyectoFinalBackend/api/book/delete/';
   private UPDATE_BOOK_URL = 'http://localhost:8080/ProyectoFinalBackend/api/book/update';
+  private SEARCH_BY_GENERE_URL = 'http://localhost:8080/ProyectoFinalBackend/api/book/genere/';
+  private SEARCH_BY_NAME_URL = 'http://localhost:8080/ProyectoFinalBackend/api/book/name/';
+  private SEARCH_BY_AUTHOR_URL = 'http://localhost:8080/ProyectoFinalBackend/api/book/author/';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -30,5 +33,17 @@ export class BookServiceService {
 
   updateBook(book: Book) {
     return this.httpClient.put<any>(this.UPDATE_BOOK_URL, Object.assign({}, book));
+  }
+
+  searchByGenere(genere: string) {
+    return this.httpClient.get(this.SEARCH_BY_GENERE_URL + genere);
+  }
+
+  searchByName(genere: string) {
+    return this.httpClient.get(this.SEARCH_BY_NAME_URL + genere);
+  }
+
+  searchByAuthor(genere: string) {
+    return this.httpClient.get(this.SEARCH_BY_AUTHOR_URL + genere);
   }
 }
