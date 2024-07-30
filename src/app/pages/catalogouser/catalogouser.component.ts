@@ -95,7 +95,6 @@ export class CatalogouserComponent implements OnInit {
   createLoan(bookId: number) {
     this.bookService.getBookById(bookId).subscribe((book: Book) => {
       if (book && book.id && book.name && book.image && book.author) {
-        // Aquí asumo que el ID del préstamo será generado por el backend
         const loan: Loan = {
           id: 0, // Usa un valor predeterminado si no tienes el ID al momento de la creación
           book: {
