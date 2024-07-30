@@ -11,7 +11,7 @@
                 <!-- Usa la imagen del libro del préstamo -->
                 <img [src]="loan.book.image" alt="imagen de libro">
                 <!-- Botón para devolver el préstamo -->
-                <button class="btn-devolver" (click)="returnLoan(loan.id)" *ngIf="loan.status === 'Reservado'">
+                <button class="btn-devolver" (click)="returnLoan(loan.id)" *ngIf="loan.status === 'loaned'">
                   Devolver
                 </button>
                 <br>
