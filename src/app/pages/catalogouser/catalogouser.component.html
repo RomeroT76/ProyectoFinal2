@@ -53,7 +53,6 @@
 
                         <div class="libro-image">
                             <img src="{{ book.image}}" alt="imagen de libro">
-                            <button class="btn-aplicar">pedir</button><br>
                         </div>
                         <div class="libro-details">
                             <h2>{{ book.name }}</h2>
@@ -63,6 +62,7 @@
                             <h4>{{ book.author }}</h4>
                             <br>
                             <h4>{{ book.availability }}</h4>
+                            <button *ngIf="book.id !== undefined" class="btn-aplicar" (click)="createLoan(book.id)">pedir</button><br>
                         </div>
 
                     </div>

@@ -1,29 +1,40 @@
+<!-- favorite.component.html -->
 <div class="container">
-    <<div class="content">
-
-        <!-- <ul>
-            @for (libro of libros; track libro) {
-            <li>
-                <div class="libros-content">
-
-                    <div class="libro-image">
-                        <img src="{{ libro.imageLink.thumbnail}}" alt="imagen de libro">
-                        @if (rol === 'admin') {
-                        <button class="btn-devolver" >Devolver</button><br>
-                        }
-                    </div>
-                    <div class="libro-details">
-                        <h2>{{ libro.title }}</h2>
-                        <br>
-                        <h4>{{ libro.publisher }}</h4>
-                        <br>
-                        <p>{{ libro.description }}</p>
-                    </div>
-
-                </div>
-            </li>
-            }
-        </ul> -->
-
-</div>
-</div>
+    <div class="content">
+      <!-- Verifica si hay préstamos -->
+      <div *ngIf="userLoans.length > 0">
+        <ul>
+          <!-- Itera sobre los préstamos -->
+          <li *ngFor="let loan of userLoans">
+            <div class="libros-content">
+              <div class="libro-image">
+                <!-- Usa la imagen del libro del préstamo -->
+                <img [src]="loan.book.image" alt="imagen de libro">
+                <!-- Botón para devolver el préstamo -->
+                <button class="btn-devolver" (click)="returnLoan(loan.id)" *ngIf="loan.status === 'loaned'">
+                  Devolver
+                </button>
+                <br>
+              </div>
+              <div class="libro-details">
+                <!-- Muestra los detalles del libro -->
+                <h2>{{ loan.book.name }}</h2>
+                <br>
+                <h4>{{ loan.book.author }}</h4>
+                <br>
+                <p>Estado: {{ loan.status }}</p>
+                <p>Fecha de Préstamo: {{ loan.loanDate | date:'short' }}</p>
+                <p>Fecha de Devolución: {{ loan.returnDate ? (loan.returnDate | date:'short') : 'Pendiente' }}</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+  
+      <!-- Mensaje si no hay préstamos -->
+      <div *ngIf="userLoans.length === 0">
+        <p>No tienes préstamos activos.</p>
+      </div>
+    </div>
+  </div>
+  
