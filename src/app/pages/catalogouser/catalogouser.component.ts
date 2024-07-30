@@ -105,7 +105,7 @@ export class CatalogouserComponent implements OnInit {
             author: book.author
           },
           user: { email: this.userEmail },
-          status: 'Reservado',
+          status: 'loaned',
           loanDate: new Date(),
           returnDate: undefined
         };
