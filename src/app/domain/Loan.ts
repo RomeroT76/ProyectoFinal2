@@ -10,7 +10,7 @@ export class Loan {
   user: {
     email: string;       // Email del usuario
   };
-  status: 'loaned' | 'returned'; // Estado del préstamo
+  status: 'Reservado' | 'Devuelto'; // Estado del préstamo
   loanDate: Date;       // Fecha del préstamo
   returnDate?: Date;    // Fecha de devolución (opcional)
 
@@ -18,7 +18,7 @@ export class Loan {
     id: number, // Agregado
     book: { id: number; name: string; image: string; author: string },
     user: { email: string },
-    status: 'loaned' | 'returned',
+    status: 'Reservado' | 'Devuelto',
     loanDate: Date,
     returnDate?: Date
   ) {

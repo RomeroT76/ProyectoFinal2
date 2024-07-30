@@ -1,11 +1,13 @@
 <div class="content">
     <ul>
-            <div class="history-content">
-                <div class="history-details">
-                    <p>Correo:</p>
-                    <p>Solicitado:</p>
-                    <p>Devuelto:</p> 
-                </div>
-            </div>
+      <div *ngFor="let loan of loans" class="history-content">
+        <div class="history-details">
+          <p>Correo: {{ loan.user.email }}</p>
+          <p>Libro: {{loan.book.name}}</p>
+          <p>Estado: {{ loan.status }}</p>
+          <p>Fecha: {{ loan.returnDate ? (loan.returnDate | date:'short') : 'Pendiente' }}</p>
+        </div>
+      </div>
     </ul>
-</div>
+  </div>
+  

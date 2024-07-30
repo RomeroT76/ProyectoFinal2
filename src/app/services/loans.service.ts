@@ -25,12 +25,9 @@ export class LoansService {
   }
   
   // Método para obtener todos los préstamos
-  getLoans(loanId: number): Observable<Loan> {
-    return this.httpClient.get<Loan>(this.GET_LOANS_URL);
+  getLoans(): Observable<Loan[]> {
+    return this.httpClient.get<Loan[]>(this.GET_LOANS_URL);
   }
-  // getLoans(): Observable<Loan[]> {
-  //   return this.httpClient.get<Loan[]>(this.GET_LOANS_URL);
-  // }
 
   // Método para obtener un préstamo por ID
   getLoan(id: number): Observable<Loan> {
