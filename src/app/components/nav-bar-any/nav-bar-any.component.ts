@@ -10,4 +10,7 @@ import { RouterLink } from '@angular/router';
 })
 export class NavBarAnyComponent {
 
+  redirect() {
+    window.open("http://localhost:8080/ProyectoFinalBackend/faces/SobreNosotros.xhtml");
+  }
 }
