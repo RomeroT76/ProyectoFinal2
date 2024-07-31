@@ -46,6 +46,7 @@ export class FavoriteComponent implements OnInit {
   this.loansService.returnLoan(loanId).subscribe({
     next: () => {
       console.log('Préstamo devuelto correctamente');
+      alert("Devolucion Exitosa");
       this.loadUserLoans(); // Recargar los préstamos del usuario
     },
     error: (err) => {

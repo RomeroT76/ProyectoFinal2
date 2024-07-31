@@ -36,6 +36,7 @@ export class EdituserComponent {
       this.user.password = this.password;
       this.userService.updateUser(this.user).subscribe({
         next: () => {
+          alert("Se han modificado exitosamente las credenciales")
           this.router.navigate([""]);
           this.password = '';
           this.passwordC = '';

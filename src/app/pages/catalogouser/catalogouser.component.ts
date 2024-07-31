@@ -131,6 +131,7 @@ export class CatalogouserComponent implements OnInit {
         this.loansService.createLoan(loan).subscribe({
           next: response => {
             console.log('Préstamo creado:', response);
+            alert("Se ha pedido exitosamente el libro");
           },
           error: err => {
             console.error('Error al crear el préstamo:', err);

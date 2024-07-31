@@ -50,6 +50,7 @@ export class EdituseradminComponent {
       this.user.password = this.password;
       this.userService.updateUser(this.user).subscribe({
         next: () => {
+          alert("Credenciales modificadas exitosamente")
           this.router.navigate(["/ugestion"]);
           this.password = '';
           this.passwordC = '';
