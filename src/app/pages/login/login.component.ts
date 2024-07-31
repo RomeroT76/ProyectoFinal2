@@ -9,15 +9,15 @@ import { CoreServiceService } from '../../services/core-service.service';
   standalone: true,
   imports: [RouterLink, FormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
   email: string = '';
   password: string = '';
 
   constructor(private loginService: LoginServiceService, 
-    private router: Router,
-    private coreService: CoreServiceService) { }
+              private router: Router,
+              private coreService: CoreServiceService) { }
 
   login(): void {
     if (this.email != '' && this.password != '') {
@@ -25,17 +25,36 @@ export class LoginComponent {
         next: res => {
           this.loginService.getToken(res).subscribe({
             next: res => {
-             this.loginService.setToken(res.token);
-             this.coreService.setRol(this.loginService.getPayload().role)
-             alert("Inicio de sesion exitoso");
-             this.router.navigate(['']);
+              this.loginService.setToken(res.token);
+              this.coreService.setRol(this.loginService.getPayload().role);
+              this.checkPendingLoans(this.email);  // Verificar préstamos pendientes
+            },
+            error: e => {
+              console.error('Error getting token', e);
+              alert('Error getting token');
             }
-          })
+          });
         },
         error: e => {
+          console.error('Error verifying credentials', e);
           alert(e.error);
         }
       });
-    } 
+    }
+  }
+
+  checkPendingLoans(email: string): void {
+    this.loginService.getPendingLoans(email).subscribe({
+      next: (loans: any[]) => {
+        if (loans.length > 0) {
+          alert('Tienes préstamos pendientes por devolver.');
+        }
+        this.router.navigate(['']); // Navigate after checking pending loans
+      },
+      error: e => {
+        console.error('Error al obtener préstamos pendientes', e);
+        this.router.navigate(['']); // Navigate even if there's an error
+      }
+    });
   }
 }
