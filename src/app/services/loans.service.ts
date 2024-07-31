@@ -11,6 +11,8 @@ export class LoansService {
   private RETURN_LOAN_URL = 'http://localhost:8080/ProyectoFinalBackend/api/loan/return';
   private GET_LOANS_URL = 'http://localhost:8080/ProyectoFinalBackend/api/loan';
   private GET_USER_LOANS_URL = 'http://localhost:8080/ProyectoFinalBackend/api/loan/user'; // URL para obtener préstamos por usuario
+  private TOP_USER_URL = 'http://localhost:8080/ProyectoFinalBackend/api/loan/report/top-user'; // URL para obtener reporte de usuario
+  private TOP_BOOK_URL = 'http://localhost:8080/ProyectoFinalBackend/api/loan/report/top-book'; // URL para obtener reporte de libro
 
   constructor(private httpClient: HttpClient) { }
 
@@ -37,6 +39,15 @@ export class LoansService {
   // Método para obtener préstamos por el email del usuario
   getLoansByUser(email: string): Observable<Loan[]> {
     return this.httpClient.get<Loan[]>(`${this.GET_USER_LOANS_URL}/${email}`);
+  }
+
+  getTopUser(): Observable<any> {
+    return this.httpClient.get<any>(this.TOP_USER_URL);
+  }
+
+  // Método para obtener el libro que ha sido más veces prestado
+  getTopBook(): Observable<any> {
+    return this.httpClient.get<any>(this.TOP_BOOK_URL);
   }
 }
 
