@@ -1,13 +1,25 @@
 <div class="content">
-    <ul>
-      <div *ngFor="let loan of loans" class="history-content">
-        <div class="history-details">
-          <p>Correo: {{ loan.user.email }}</p>
-          <p>Libro: {{loan.book.name}}</p>
-          <p>Estado: {{ loan.status }}</p>
-          <p>Fecha: {{ loan.returnDate ? (loan.returnDate | date:'short') : 'Pendiente' }}</p>
-        </div>
-      </div>
-    </ul>
+  <div *ngIf="topUser.length > 0" class="top-user">
+    <h2>Usuario con más préstamos:</h2>
+    <p>Correo: {{ topUser[0] }}</p>
+    <p>Préstamos: {{ topUser[1] }}</p>
   </div>
   
+  <div *ngIf="topBook.length > 0" class="top-book">
+    <h2>Libro más prestado:</h2>
+    <p>Libro: {{ topBook[0] }}</p>
+    <p>Veces prestado: {{ topBook[1] }}</p>
+  </div>
+  
+
+  <ul>
+    <div *ngFor="let loan of loans" class="history-content">
+      <div class="history-details">
+        <p>Correo: {{ loan.user.email }}</p>
+        <p>Libro: {{ loan.book.name }}</p>
+        <p>Estado: {{ loan.status }}</p>
+        <p>Fecha: {{ loan.returnDate ? (loan.returnDate | date:'short') : 'Pendiente' }}</p>
+      </div>
+    </div>
+  </ul>
+</div>

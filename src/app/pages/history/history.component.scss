@@ -30,7 +30,28 @@
     color: white;
 }
 
-p{
+p {
     font-family: "Nunito", sans-serif;
     color: orange;
+}
+
+.top-user, .top-book {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid orange;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 10px auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+.top-user p, .top-book p {
+    font-family: "Nunito", sans-serif;
+    color: orange;
+}
+
+.top-user h2, .top-book h2 {
+    color: white;
+    font-family: "Nunito", sans-serif;
+    margin-bottom: 10px;
 }
