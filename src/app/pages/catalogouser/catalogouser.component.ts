@@ -95,8 +95,13 @@ export class CatalogouserComponent implements OnInit {
   createLoan(bookId: number) {
     this.bookService.getBookById(bookId).subscribe((book: Book) => {
       if (book && book.id && book.name && book.image && book.author) {
+        if (book.availability === 'loaned') {
+          alert('El libro no está disponible para préstamo.');
+          return;
+        }
+        
         const loan: Loan = {
-          id: 0, // Usa un valor predeterminado si no tienes el ID al momento de la creación
+          id: 0,  // Inicializa con 0 o null
           book: {
             id: book.id,
             name: book.name,
@@ -108,18 +113,19 @@ export class CatalogouserComponent implements OnInit {
           loanDate: new Date(),
           returnDate: undefined
         };
-        
-        // Envía el préstamo al backend para que se guarde
+  
         this.loansService.createLoan(loan).subscribe({
-          next: () => {
-            console.log('Préstamo creado correctamente');
+          next: response => {
+            console.log('Préstamo creado:', response);
           },
-          error: (err) => {
+          error: err => {
             console.error('Error al crear el préstamo:', err);
           }
         });
       }
     });
   }
+  
+  
   
 }
