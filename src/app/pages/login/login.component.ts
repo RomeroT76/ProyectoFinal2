@@ -3,6 +3,8 @@ import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { LoginServiceService } from '../../services/login-service.service';
 import { CoreServiceService } from '../../services/core-service.service';
+import { MailServiceService } from '../../services/mail-service.service';
+import { Mail } from '../../domain/Mail';
 
 @Component({
   selector: 'app-login',
@@ -14,10 +16,13 @@ import { CoreServiceService } from '../../services/core-service.service';
 export class LoginComponent {
   email: string = '';
   password: string = '';
+  mail?: Mail;
 
   constructor(private loginService: LoginServiceService, 
               private router: Router,
-              private coreService: CoreServiceService) { }
+              private coreService: CoreServiceService,
+              private mailService: MailServiceService
+            ) { }
 
   login(): void {
     if (this.email != '' && this.password != '') {
@@ -48,6 +53,17 @@ export class LoginComponent {
       next: (loans: any[]) => {
         if (loans.length > 0) {
           alert('Tienes préstamos pendientes por devolver.');
+          this.mail = new Mail();
+          this.mail.to = this.loginService.getPayload().user;
+          this.mailService.sendEmail(this.mail).subscribe({
+            next: res => {
+              console.log("correo enviado exitosamente");
+            },
+            error: err => {
+              console.log(err);
+            }
+          });
+          
         }
         this.router.navigate(['']); // Navigate after checking pending loans
       },
