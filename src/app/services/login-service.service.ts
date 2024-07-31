@@ -8,12 +8,11 @@ import { Observable } from 'rxjs';
 })
 export class LoginServiceService {
 
-  constructor(private httpClient: HttpClient, 
-    private router: Router) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
   private LOGIN_URL: string = 'http://localhost:8080/ProyectoFinalBackend/api/auth/login';
-  // Se debe pasar como parametros adicionales a la ruta el usuario y contraseña a la ruta
   private USERS_URL: string = `http://localhost:8080/ProyectoFinalBackend/api/user`;
+  private LOANS_URL: string = `http://localhost:8080/ProyectoFinalBackend/api/loan`;
   private KEY: string = 'token';
 
   getToken(credentials: any): Observable<any> {
@@ -21,7 +20,7 @@ export class LoginServiceService {
   }
 
   verifyCredentials(email: string, password: string): Observable<any> {
-    return this.httpClient.get(this.USERS_URL+`/${email}/${password}`);
+    return this.httpClient.get(`${this.USERS_URL}/${email}/${password}`);
   }
 
   setToken(token: string): void {
@@ -31,8 +30,14 @@ export class LoginServiceService {
   getPayload(): any {
     const token = localStorage.getItem(this.KEY);
     if (token != null) {
-      const payload = JSON.parse(atob(token.split('.')[1]));
-      return payload;
+      try {
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        return payload;
+      } catch (e) {
+        console.error('Error parsing token payload', e);
+        this.clearToken();
+        this.router.navigate(['']);
+      }
     } else {
       this.router.navigate(['']);
     }
@@ -40,5 +45,9 @@ export class LoginServiceService {
 
   clearToken(): void {
     localStorage.clear();
+  }
+
+  getPendingLoans(email: string): Observable<any> {
+    return this.httpClient.get(`${this.LOANS_URL}/user/pending/${email}`);
   }
 }
