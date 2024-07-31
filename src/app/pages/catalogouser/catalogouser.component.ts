@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 export class CatalogouserComponent implements OnInit {
   result: Book[] = [];
   authors: string[] = [];
+  availability: string[] = [];
   titles: string[] = [];
   categories: string[] = [];
   bookData: Book[] = [];
@@ -64,6 +65,11 @@ export class CatalogouserComponent implements OnInit {
             this.categories.push(book.genere);
           }
         }
+        if (book.availability) {
+          if (!this.availability.includes(book.availability)) {
+            this.availability.push(book.availability);
+          }
+        }
       });
     });
   }
@@ -87,6 +93,14 @@ export class CatalogouserComponent implements OnInit {
   searchByAuthor(author: string) {
     this.result = [];
     this.bookService.searchByAuthor(author).subscribe((data: Book[]) => {
+      this.bookData = data;
+      this.result = [...this.bookData];
+    });
+  }
+
+  searchByAvailability(availability: string) {
+    this.result = [];
+    this.bookService.searchBookByAvailability(availability).subscribe((data: Book[]) => {
       this.bookData = data;
       this.result = [...this.bookData];
     });

@@ -37,9 +37,11 @@
             <div class="dropdown">
                 <button class="dropdown-toggle">Disponibilidad</button>
                 <div class="dropdown-menu">
-                    <a>Disponible</a>
-                    <a>No disponible</a>
-                    <a>Reservado</a>
+                    <ul>
+                        @for (availability of availability; track availability) {
+                        <li><a (click)="searchByAvailability(availability)">{{ availability }}</a></li>
+                        }
+                    </ul>
                 </div>
             </div>
 

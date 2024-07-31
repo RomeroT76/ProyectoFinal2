@@ -17,6 +17,7 @@ export class BookServiceService {
   private SEARCH_BY_NAME_URL = 'http://localhost:8080/ProyectoFinalBackend/api/book/name/';
   private SEARCH_BY_AUTHOR_URL = 'http://localhost:8080/ProyectoFinalBackend/api/book/author/';
   private BOOK_BY_ID_URL = 'http://localhost:8080/ProyectoFinalBackend/api/book/';
+  private SEARCH_BY_AVAILABILITY_URL = 'http://localhost:8080/ProyectoFinalBackend/api/book/availability/';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -53,6 +54,10 @@ export class BookServiceService {
 
   getBookById(id: number): Observable<Book> {
     return this.httpClient.get<Book>(`${this.BOOK_BY_ID_URL}${id}`);
+  }
+
+  searchBookByAvailability(availability: string): Observable<Book[]> {
+    return this.httpClient.get<Book[]>(this.SEARCH_BY_AVAILABILITY_URL + availability);
   }
 
 }
