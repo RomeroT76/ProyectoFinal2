@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
 .body {
     margin: 0;
@@ -17,15 +18,21 @@
 }
 
 .btn-aplicar {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     padding: 10px 20px;
     background-color: #f80;
     color: rgb(255, 255, 255);
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
-    margin-top: 30px;
+    margin-top: 10px;
     cursor: pointer;
+    border: none;
+}
+
+.btn-aplicar i {
+    margin-right: 5px;
 }
 
 .btn-aplicar:hover {
@@ -36,11 +43,11 @@
     display: flex;
     justify-content: center;
     gap: 10px;
-    background-color: transparent;
-    backdrop-filter: blur(15px);
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
 .dropdown {
@@ -55,6 +62,8 @@
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
 }
 
 .dropdown-toggle::after {
@@ -112,11 +121,12 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 10px;
+    padding: 20px;
     margin: 10px;
     border-radius: 15px;
     border: 1px solid orange;
     flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .libro-image img {
@@ -127,12 +137,17 @@
 .libro-details {
     color: white;
     text-align: center;
+    margin-top: 10px;
 }
 
-.libro-details h2,
-.libro-details h4 {
+.libro-details h2 {
     color: orange;
-    margin: 5px 0;
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.libro-details p {
+    margin: 10px 0;
 }
 
 ::placeholder {

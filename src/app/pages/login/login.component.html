@@ -1,24 +1,31 @@
-<div class="container">
-    <form class="form">
-        <h2 class="form-title">Iniciar Sesion</h2>
-
+<div class="background">
+    <div class="container">
+      <form class="form">
+        <h2 class="form-title">
+          <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+        </h2>
+  
         <div class="form-container">
-
-            <div class="form-group">
-                <input type="text" class="form-input" id="user" placeholder=" " [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
-                <label for="user" class="form-label">Email:</label>
-                <span class="form-line"></span>
-            </div>
-
-            <div class="form-group">
-                <input type="password" class="form-input" id="password" placeholder=" " [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
-                <label for="password" class="form-label">Contraseña:</label>
-                <span class="form-line"></span>
-            </div>
-
-            <input type="button" value="Entrar" class="form-submit" (click)="login()">
-
-            <p class="form-paragraph">¿Aún no tienes tu cuenta? <a class="form-link" routerLink="register">Entra aqui</a></p>
+  
+          <div class="form-group">
+            <input type="text" class="form-input" id="user" placeholder=" " [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+            <label for="user" class="form-label">Email:</label>
+            <span class="form-line"></span>
+            <i class="fas fa-envelope form-icon"></i>
+          </div>
+  
+          <div class="form-group">
+            <input type="password" class="form-input" id="password" placeholder=" " [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+            <label for="password" class="form-label">Contraseña:</label>
+            <span class="form-line"></span>
+            <i class="fas fa-lock form-icon"></i>
+          </div>
+  
+          <input type="button" value="Entrar" class="form-submit" (click)="login()">
+  
+          <p class="form-paragraph">¿Aún no tienes tu cuenta? <a class="form-link" routerLink="register">Entra aquí</a></p>
         </div>
-    </form>
-</div>
+      </form>
+    </div>
+  </div>
+  

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
 .container {
     background-image: url(https://r4.wallpaperflare.com/wallpaper/728/926/542/library-ladders-candles-shelves-wallpaper-a28152c01d26befb6a08f2c5c0f85942.jpg);
@@ -7,70 +8,123 @@
     min-height: 100vh;
     font-family: "Nunito", sans-serif;
     overflow: auto;
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+}
+
+.catalog-title {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.catalog-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.catalog-item {
+    flex: 1 1 200px; /* Permitir que los items se ajusten al tamaño del contenedor */
+    max-width: 300px;
+    margin-bottom: 20px;
 }
 
 .libros-content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
-    backdrop-filter: blur(30px);
-    margin: 10px 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
     border-radius: 15px;
-    border: 1px solid orange;
+    border: 1px solid #f39c12;
     overflow: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
-.libro-image {
-    display: block;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10px;
+.libro-image img {
+    max-width: 150px;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 .libro-details {
-    display: block;
-    justify-content: center;
-    align-items: center;
-    margin-left: 15px;
-    color: white;
+    color: #fff;
+    flex: 1;
 }
 
 .libro-details h2 {
-    color: orange;
+    color: #f39c12;
+    margin: 0;
+    font-size: 1.5em;
 }
 
-.libro-details h4 {
-    color: orange;
+.libro-details p {
+    margin: 10px 0;
 }
 
-.button {
-    width: 100%;
-    height: 40px;
-    background-color: orange;
-    margin: 5px 0;
-    border-radius: 10px;
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
 }
 
-.btn-borrar{
-    display: inline-block;
-    padding: 10px 30px;
-    background-color: #f80;
+.btn-editar, .btn-borrar {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f39c12;
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    border: none;
     transition: background-color 0.3s;
-    margin-left: 15px;
+    cursor: pointer;
 }
 
-.btn-editar{
-    display: inline-block;
-    padding: 10px 30px;
-    background-color: #f80;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    margin-left: 15px;
+.btn-editar i, .btn-borrar i {
+    margin-right: 5px;
 }
 
+.btn-editar:hover, .btn-borrar:hover {
+    background-color: #d35400;
+}
+
+@media screen and (max-width: 768px) {
+    .catalog-item {
+        flex: 1 1 100%; /* Hacer que los items ocupen toda la fila en pantallas pequeñas */
+    }
+    
+    .libros-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .libro-image img {
+        margin: 0 0 10px 0;
+    }
+
+    .libro-details {
+        text-align: center;
+    }
+
+    .button-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-editar, .btn-borrar {
+        width: 100%;
+        justify-content: center;
+    }
+}

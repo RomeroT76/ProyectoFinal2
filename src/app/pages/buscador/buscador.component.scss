@@ -1,80 +1,159 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
 .container {
-    background-image: url(https://r4.wallpaperflare.com/wallpaper/728/926/542/library-ladders-candles-shelves-wallpaper-a28152c01d26befb6a08f2c5c0f85942.jpg);
+    background-image: url('https://r4.wallpaperflare.com/wallpaper/728/926/542/library-ladders-candles-shelves-wallpaper-a28152c01d26befb6a08f2c5c0f85942.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
     font-family: "Nunito", sans-serif;
     overflow: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .buscador {
     display: flex;
     justify-content: center;
-}
-
-.libros-content {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: transparent;
-    backdrop-filter: blur(30px);
-    margin: 10px 10px;
-    border-radius: 15px;
-    border: 1px solid orange;
-    overflow: auto;
-}
-
-.libro-image {
-    display: block;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10px;
-}
-
-.libro-details {
-    display: block;
-    justify-content: center;
-    align-items: center;
-    margin-left: 15px;
-    color: white;
-}
-
-.libro-details h2 {
-    color: orange;
-}
-
-.libro-details h4 {
-    color: orange;
-}
-
-.button {
+    gap: 10px;
+    margin-bottom: 20px;
     width: 100%;
+    max-width: 800px;
+}
+
+.s-bar {
+    flex-grow: 1;
     height: 40px;
-    background-color: orange;
-    margin: 5px 0;
     border-radius: 10px;
+    margin: 5px 0;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid orange;
+    color: white;
+    padding: 0 10px;
 }
 
 .s-button {
-    width: 10%;
     height: 40px;
     border-radius: 10px;
     background-color: orange;
     margin: 5px 0;
     cursor: pointer;
+    border: none;
+    color: white;
+    padding: 0 20px;
+    font-size: 16px;
 }
 
-.s-bar {
-    width: 50%;
-    height: 40px;
-    border-radius: 10px;
-    margin: 5px 0;
-    outline: none;
-    background-color: transparent;
+.content {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 1200px;
+}
+
+.books-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.book-item {
+    margin: 10px;
+    flex: 1 1 300px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.libros-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 15px;
     border: 1px solid orange;
-    backdrop-filter: blur(30px);
-    color: orange;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
+.libro-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.libro-image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.libro-details {
+    color: white;
+    flex-grow: 1;
+    overflow: hidden; /* Asegura que el contenido adicional se oculte */
+}
+
+.libro-details h2 {
+    color: orange;
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.libro-details h3,
+.libro-details h4,
+.libro-details p {
+    margin: 5px 0;
+}
+
+.book-description {
+    overflow: auto; /* Permite la barra de desplazamiento */
+    max-height: 100px; /* Limita la altura máxima */
+}
+
+.btn-agregar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #f80;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+}
+
+.btn-agregar:hover {
+    background-color: #e96b00;
+}
+
+@media (min-width: 768px) {
+    .libros-content {
+        text-align: left;
+    }
+
+    .libro-details {
+        margin-left: 20px;
+    }
+
+    .buscador {
+        flex-wrap: nowrap;
+    }
+}

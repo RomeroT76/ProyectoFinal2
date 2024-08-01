@@ -1,58 +1,124 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
-.content {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.background {
     background-image: url(https://r4.wallpaperflare.com/wallpaper/728/926/542/library-ladders-candles-shelves-wallpaper-a28152c01d26befb6a08f2c5c0f85942.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 100vh;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
     font-family: "Nunito", sans-serif;
-    overflow: auto;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    padding: 25px 30px;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #fe9b31;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title i {
+    margin-right: 10px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.users-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user-item {
+    margin-bottom: 15px;
 }
 
 .usuario-content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    background-color: transparent;
-    backdrop-filter: blur(20px);
-    margin: 5px auto;
-    border-radius: 15px;
-    border: 1px solid orange;
-    overflow: auto;
-    max-width: 600px;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #fe9b31;
 }
 
-.usuario-details{
-    display: block;
-    justify-content: center;
-    align-items: center;
-    margin-left: 15px;
+.usuario-details {
     color: white;
+    width: 70%;
 }
 
-.btn-borrar{
+.usuario-details h2 {
+    color: #fe9b31;
+    margin-bottom: 10px;
+}
+
+.usuario-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-editar, .btn-borrar {
     display: inline-block;
-    padding: 10px 30px;
-    background-color: #f80;
+    padding: 10px 15px;
+    background-color: #fe9b31;
     color: white;
-    text-decoration: none;
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
     transition: background-color 0.3s;
-    margin-left: 15px;
 }
 
-.btn-editar{
-    display: inline-block;
-    padding: 10px 30px;
-    background-color: #f80;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    margin-left: 15px;
+.btn-editar:hover, .btn-borrar:hover {
+    background-color: #e88c25;
 }
 
-p{
-    font-family: "Nunito", sans-serif;
-    color: orange;
+.btn-editar i, .btn-borrar i {
+    margin-right: 5px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .usuario-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .usuario-details {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .usuario-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
 }

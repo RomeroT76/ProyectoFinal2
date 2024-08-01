@@ -1,29 +1,37 @@
 <div class="background">
     <div class="container">
-        <div class="title">Datos Personales</div>
-        <form>
-
-            <div class="form-group">
-                <span>Correo Electronico: </span>
-                <input type="email" id="correo" placeholder="Ingrese su correo elecronico*" [(ngModel)]="email"
-                    [ngModelOptions]="{standalone: true}">
-            </div>
-
-            <div class="form-group">
-                <span>Contraseña: </span>
-                <input type="password" id="contrseña" placeholder="Ingrese su contraseña*" [(ngModel)]="password"
-                    [ngModelOptions]="{standalone: true}">
-            </div>
-
-            <div class="form-group">
-                <span>Confirmar Contraseña: </span>
-                <input type="password" id="contrseñaC" placeholder="Confirme su contraseña*" [(ngModel)]="passwordC"
-                    [ngModelOptions]="{standalone: true}">
-            </div>
-
-            <div class="button">
-                <input type="button" value="Registrarse" (click)="createUSer()">
-            </div>
-        </form>
+      <form class="form">
+        <h2 class="form-title">
+          <i class="fas fa-user-plus"></i> Registrarse
+        </h2>
+  
+        <div class="form-container">
+          <div class="form-group">
+            <input type="text" class="form-input" id="user" placeholder=" " [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+            <label for="user" class="form-label">Email:</label>
+            <span class="form-line"></span>
+            <i class="fas fa-envelope form-icon"></i>
+          </div>
+  
+          <div class="form-group">
+            <input type="password" class="form-input" id="password" placeholder=" " [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+            <label for="password" class="form-label">Contraseña:</label>
+            <span class="form-line"></span>
+            <i class="fas fa-lock form-icon"></i>
+          </div>
+  
+          <div class="form-group">
+            <input type="password" class="form-input" id="passwordC" placeholder=" " [(ngModel)]="passwordC" [ngModelOptions]="{standalone: true}">
+            <label for="passwordC" class="form-label">Confirmar Contraseña:</label>
+            <span class="form-line"></span>
+            <i class="fas fa-lock form-icon"></i>
+          </div>
+  
+          <input type="button" value="Registrarse" class="form-submit" (click)="createUSer()">
+  
+          <p class="form-paragraph">¿Ya tienes una cuenta? <a class="form-link" routerLink="login">Inicia Sesión</a></p>
+        </div>
+      </form>
     </div>
-</div>
+  </div>
+  

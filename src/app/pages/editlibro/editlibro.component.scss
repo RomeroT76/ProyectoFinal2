@@ -22,95 +22,109 @@
     max-width: 700px;
     width: 100%;
     padding: 25px 30px;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
-    border-radius: 5px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .title {
-    font-size: 25px;
-    font-weight: 500;
+    font-size: 30px;
+    font-weight: 700;
     color: #fe9b31;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title i {
+    margin-right: 10px;
 }
 
 .container form {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 10px 12px 0;
+    gap: 20px;
 }
 
 .form-group {
-    margin-bottom: 15px;
-    width: calc(100% / 2 - 20px);
+    width: calc(50% - 10px);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group.full-width {
+    width: 100%;
 }
 
 .form-group span {
     display: block;
     font-weight: 500;
     margin-bottom: 5px;
-    color: white;
+    color: #fe9b31;
 }
 
-.form-group input, .form-group textarea {
-    width: 100%;
-    outline: none;
-    border-radius: 5px;
-    border: 1px solid  #fe9b31;
-    padding-left: 15px;
-    border-top-width: 2px;
-    transition: all 0.3s ease;
-    background-color: transparent;
+.form-group i {
+    position: absolute;
+    top: 36px;
+    left: 10px;
     color: #fe9b31;
 }
 
 .form-group input {
+    width: 100%;
     height: 40px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #fe9b31;
+    padding-left: 35px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fe9b31;
+    transition: all 0.3s ease;
 }
 
-.form-group textarea {
-    height: 100px;
-    resize: vertical;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.form-group input:focus, .form-group input:valid,
-.form-group textarea:focus, .form-group textarea:valid {
+.form-group input:focus {
     border-color: #fe9b31;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .button {
     width: 100%;
-    height: 40px;
-    margin: 40px 0;
+    margin-top: 20px;
 }
 
 .button input {
     width: 100%;
-    height: 100%;
+    height: 50px;
     outline: none;
     cursor: pointer;
     background-color: #fe9b31;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 700;
     border: none;
     border-radius: 5px;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.button input:hover {
+    background-color: #e88c25;
 }
 
 @media (max-width: 584px) {
     .container {
         max-width: 100%;
+        padding: 20px;
     }
 
     .form-group {
-        margin-bottom: 15px;
         width: 100%;
+        margin-bottom: 15px;
     }
 
     .container form {
         max-height: 400px;
-        overflow-y: scroll;
+        overflow-y: auto;
     }
 
     .container form::-webkit-scrollbar {
@@ -118,6 +132,6 @@
     }
 
     .button {
-        margin: 20px 0;
+        margin-top: 20px;
     }
 }

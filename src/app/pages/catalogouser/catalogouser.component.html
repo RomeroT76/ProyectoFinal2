@@ -2,7 +2,7 @@
     <div class="container">
         <div class="filter">
             <div class="dropdown">
-                <button class="dropdown-toggle">Autor</button>
+                <button class="dropdown-toggle"><i class="fas fa-user"></i> Autor</button>
                 <div class="dropdown-menu">
                     <ul>
                         @for (author of authors; track author) {
@@ -13,7 +13,7 @@
             </div>
 
             <div class="dropdown">
-                <button class="dropdown-toggle">Titulo</button>
+                <button class="dropdown-toggle"><i class="fas fa-book"></i> Título</button>
                 <div class="dropdown-menu">
                     <ul>
                         @for (title of titles; track title) {
@@ -24,7 +24,7 @@
             </div>
 
             <div class="dropdown">
-                <button class="dropdown-toggle">Categoria</button>
+                <button class="dropdown-toggle"><i class="fas fa-tags"></i> Categoría</button>
                 <div class="dropdown-menu">
                     <ul>
                         @for (genere of categories; track genere) {
@@ -35,7 +35,7 @@
             </div>
 
             <div class="dropdown">
-                <button class="dropdown-toggle">Disponibilidad</button>
+                <button class="dropdown-toggle"><i class="fas fa-check"></i> Disponibilidad</button>
                 <div class="dropdown-menu">
                     <ul>
                         @for (availability of availability; track availability) {
@@ -44,29 +44,26 @@
                     </ul>
                 </div>
             </div>
-
         </div>
+
         <div class="content">
-            <ul>
+            <ul class="catalog-list">
                 @if (result != []) {
                 @for (book of result; track book) {
-                <li>
+                <li class="catalog-item">
                     <div class="libros-content">
-
                         <div class="libro-image">
-                            <img src="{{ book.image}}" alt="imagen de libro">
+                            <img src="{{ book.image}}" alt="Imagen de libro">
                         </div>
                         <div class="libro-details">
                             <h2>{{ book.name }}</h2>
-                            <br>
-                            <h4>{{ book.genere }}</h4>
-                            <br>
-                            <h4>{{ book.author }}</h4>
-                            <br>
-                            <h4>{{ book.availability }}</h4>
-                            <button *ngIf="book.id !== undefined" class="btn-aplicar" (click)="createLoan(book.id)">pedir</button><br>
+                            <p><strong>Género:</strong> {{ book.genere }}</p>
+                            <p><strong>Autor:</strong> {{ book.author }}</p>
+                            <p><strong>Disponibilidad:</strong> {{ book.availability }}</p>
+                            <button *ngIf="book.id !== undefined" class="btn-aplicar" (click)="createLoan(book.id)">
+                                <i class="fas fa-hand-holding"></i> Pedir
+                            </button>
                         </div>
-
                     </div>
                 </li>
                 }

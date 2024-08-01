@@ -1,93 +1,129 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
-    header{
-        text-decoration: none;
-        font-family: 'Nunito' , sans-serif;
+header {
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    width: 100%;
+    height: 90px;
+    background-color: #f39c12;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    position: relative;
+}
+
+.interior {
+    max-width: 100%;
+    padding: 0 10px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    margin-left: 10px;
+}
+
+.logo img {
+    height: 80px;
+    padding-top: 10px;
+    transition: transform 0.3s;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+.navegacion {
+    display: flex;
+    align-items: center;
+}
+
+.navegacion ul {
+    list-style: none;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.navegacion ul li {
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.navegacion ul li:hover {
+    transform: scale(1.1);
+}
+
+.navegacion ul li a {
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px 20px;
+    transition: transform 0.3s;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.navegacion ul li a i {
+    margin-right: 8px;
+}
+
+.navegacion ul li a:hover {
+    color: #d35400;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    .interior {
+        padding: 0 20px;
+    }
+
+    .logo img {
+        height: 60px;
+    }
+
+    .navegacion ul {
+        flex-direction: column;
+        position: fixed;
+        top: 90px;
+        left: -100%;
         width: 100%;
-        height: 90px;
-        background-color: orange;
-        top: 0; 
+        height: calc(100% - 90px);
+        background: #f39c12;
+        transition: left 0.3s;
+    }
+
+    .navegacion ul.active {
         left: 0;
-        z-index: 1000; 
-    }
-    .interior{
-        max-width: 100%;
-        padding: 0 10px;
-        margin: auto;
     }
 
-    .logo{
-        margin-left: 10px;
+    .navegacion ul li {
+        margin: 0;
+        width: 100%;
     }
 
-    .logo img{
-        height: 80px;
-        padding-top: 10px;
-    }
-    .logo img:hover{
-        transform: scale(1.1);
-    }
-    .navegacion{
-        float: right;
+    .navegacion ul li a {
+        padding: 20px;
+        font-size: 16px;
+        width: 100%;
         display: flex;
-        align-items: center;
-        min-height: 90px;
-        z-index: 1000;
-    }
-    .navegacion ul{
-        list-style: none;
-        padding: 0 10px;
+        justify-content: center;
     }
 
-    .navegacion ul li{
-        display: inline-block;
-        position: relative;
-        transition: .3s linear;
-        z-index: 1000;
+    .menu-toggle {
+        display: block;
     }
-    .navegacion ul li:hover{
-        transform: scale(1.1);
-    }
-    .navegacion ul li a{
-        color: #ffffff;
-        text-align: center;
-        text-transform: uppercase;
-        font-size: 14px;
-        font-weight: bold;
-        padding: 12px 20px;
-        transition: .3s linear;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    .navegacion ul li a:hover{
-  
-        transform: scale(1.1);
-    }
-    
-    @media screen and (max-width: 768px) {
-        .interior {
-            padding: 0 20px;
-        }
-    
-        .logo img {
-            height: 60px;
-        }
-    
-        .navegacion {
-            min-height: auto;
-        }
-    
-        .navegacion ul {
-            padding: 0;
-        }
-    
-        .navegacion ul li {
-            margin-left: 0; 
-        }
-    
-        .navegacion ul li a {
-            padding: 8px 16px; 
-            font-size: 10px; 
-        }
-    }
+}

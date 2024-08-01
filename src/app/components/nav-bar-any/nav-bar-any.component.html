@@ -1,11 +1,14 @@
 <header>
     <div class="interior">
-        <a routerLink='' class="logo"><img src="assets\logo.png" alt=""></a>
+        <a routerLink='' class="logo"><img src="assets/logo.png" alt="Logo"></a>
         <nav class="navegacion">
             <ul>
-                <li><a routerLink="login">Iniciar sesión</a></li>
-                <li><a (click)="redirect()">Sobre Nosotros</a></li>
+                <li><a routerLink="login"><i class="fas fa-sign-in-alt"></i> Iniciar sesión</a></li>
+                <li><a (click)="redirect()"><i class="fas fa-info-circle"></i> Sobre Nosotros</a></li>
             </ul>
         </nav>
+        <div class="menu-toggle" (click)="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
     </div>
 </header>

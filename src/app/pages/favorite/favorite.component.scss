@@ -1,66 +1,99 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
 .container {
-    background-image: url(https://r4.wallpaperflare.com/wallpaper/728/926/542/library-ladders-candles-shelves-wallpaper-a28152c01d26befb6a08f2c5c0f85942.jpg);
+    background-image: url('https://r4.wallpaperflare.com/wallpaper/728/926/542/library-ladders-candles-shelves-wallpaper-a28152c01d26befb6a08f2c5c0f85942.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
     font-family: "Nunito", sans-serif;
     overflow: auto;
+    padding: 20px;
+}
+
+.content {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.loans-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.loan-item {
+    margin: 10px;
+    flex: 1 1 300px;
 }
 
 .libros-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
-    backdrop-filter: blur(30px);
-    margin: 10px 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    margin: 10px;
     border-radius: 15px;
     border: 1px solid orange;
-    overflow: auto;
+    flex-direction: column;
+    text-align: center;
 }
 
-.libro-image {
-    display: block;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10px;
+.libro-image img {
+    max-width: 100%;
+    border-radius: 10px;
 }
 
 .libro-details {
-    display: block;
-    justify-content: center;
-    align-items: center;
-    margin-left: 15px;
     color: white;
+    margin-top: 10px;
 }
 
 .libro-details h2 {
     color: orange;
+    margin: 0;
+    font-size: 1.5em;
 }
 
-.libro-details h4 {
-    color: orange;
-}
-
-.button {
-    width: 100%;
-    height: 40px;
-    background-color: orange;
+.libro-details p {
     margin: 5px 0;
-    border-radius: 10px;
 }
 
-.btn-devolver{
-    display: inline-block;
-    padding: 10px 30px;
+.btn-devolver {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
     background-color: #f80;
-    color: white;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
-    margin-left: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
 }
 
+.btn-devolver i {
+    margin-right: 5px;
+}
 
+.btn-devolver:hover {
+    background-color: #e96b00;
+}
+
+@media (min-width: 768px) {
+    .libros-content {
+        flex-direction: row;
+        padding: 20px;
+        text-align: left;
+    }
+
+    .libro-details {
+        margin-left: 20px;
+    }
+}

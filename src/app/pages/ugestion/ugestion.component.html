@@ -1,15 +1,28 @@
-<div class="content">
-    <ul>
-        @for (user of users; track user) {
-            <div class="usuario-content">
-                <div class="usurio-details">
-                    <p>Email: {{user.email}}</p>
-                    <p>Rol:  {{user.rol}}</p>
-                    <p>Contraseña: {{user.password}}</p> 
-                    <button class="btn-borrar" (click)="deleteUser(user.email)">Borrar</button><br>
-                    <button class="btn-editar" routerLink="/edituseradmin" (click)="sendCredentials(user.email, user.rol)">Editar</button>
-                </div>
-            </div>
-        }
-    </ul>
+<div class="background">
+    <div class="container">
+        <div class="title">
+            <i class="fas fa-users-cog"></i> Gestión de Usuarios
+        </div>
+        <div class="content">
+            <ul class="users-list">
+                <li *ngFor="let user of users" class="user-item">
+                    <div class="usuario-content">
+                        <div class="usuario-details">
+                            <h2>{{ user.name }}</h2>
+                            <p><strong>Email:</strong> {{ user.email }}</p>
+                            <p><strong>Rol:</strong> {{ user.rol }}</p>
+                        </div>
+                        <div class="usuario-actions">
+                            <button class="btn-editar" (click)="sendCredentials(user.email, user.rol)">
+                                <i class="fas fa-edit"></i> Editar
+                            </button>
+                            <button class="btn-borrar" (click)="deleteUser(user.email)">
+                                <i class="fas fa-trash-alt"></i> Borrar
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>

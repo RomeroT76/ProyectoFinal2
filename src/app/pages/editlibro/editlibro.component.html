@@ -1,31 +1,32 @@
 <div class="background">
-    <div class="container">
-      <div class="title">Editar Libro</div>
+  <div class="container">
+      <div class="title">
+          <i class="fas fa-edit"></i> Editar Libro
+      </div>
       <form [formGroup]="bookForm" (ngSubmit)="onSaveChanges()">
-        <div class="form-group">
-          <span>Título</span>
-          <input type="text" formControlName="name" required>
-        </div>
-        <div class="form-group">
-          <span>Autor</span>
-          <input type="text" formControlName="author" required>
-        </div>
-        <div class="form-group" style="width: 100%;">
-          <span>Imagen Link</span>
-          <input type="text" formControlName="image" required>
-        </div>
-        <div class="form-group" style="width: 100%;">
-          <span>Género</span>
-          <input type="text" formControlName="genere" required>
-        </div>
-        <div class="form-group" style="width: 100%;">
-          <span>Disponibilidad</span>
-          <input type="text" formControlName="availability" required>
-        </div>
-        <div class="button">
-          <input type="submit" value="Guardar Cambios">
-        </div>
+          <div class="form-group">
+              <span><i class="fas fa-book"></i> Título</span>
+              <input type="text" formControlName="name" required>
+          </div>
+          <div class="form-group">
+              <span><i class="fas fa-user"></i> Autor</span>
+              <input type="text" formControlName="author" required>
+          </div>
+          <div class="form-group full-width">
+              <span><i class="fas fa-link"></i> Imagen Link</span>
+              <input type="text" formControlName="image" required>
+          </div>
+          <div class="form-group full-width">
+              <span><i class="fas fa-tag"></i> Género</span>
+              <input type="text" formControlName="genere" required>
+          </div>
+          <div class="form-group full-width">
+              <span><i class="fas fa-clipboard-check"></i> Disponibilidad</span>
+              <input type="text" formControlName="availability" required>
+          </div>
+          <div class="button">
+              <input type="submit" value="Guardar Cambios">
+          </div>
       </form>
-    </div>
   </div>
-  
+</div>
