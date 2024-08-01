@@ -6,11 +6,16 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   templateUrl: './nav-bar-any.component.html',
-  styleUrl: './nav-bar-any.component.scss'
+  styleUrls: ['./nav-bar-any.component.scss']
 })
 export class NavBarAnyComponent {
 
   redirect() {
     window.open("http://localhost:8080/ProyectoFinalBackend/faces/SobreNosotros.xhtml");
+  }
+
+  toggleMenu() {
+    const nav = document.querySelector('.navegacion ul');
+    nav?.classList.toggle('active');
   }
 }

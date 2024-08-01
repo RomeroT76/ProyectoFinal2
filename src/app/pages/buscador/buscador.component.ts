@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common'; // Asegúrate de importar CommonModule
 import { BooksApiService } from '../../services/books-api.service';
 import { BookServiceService } from '../../services/book-service.service';
 import { Book } from '../../domain/Book';
@@ -7,33 +8,29 @@ import { Book } from '../../domain/Book';
 @Component({
   selector: 'app-buscador',
   standalone: true,
-  imports: [FormsModule],
+  imports: [CommonModule, FormsModule], // Asegúrate de incluir CommonModule aquí
   templateUrl: './buscador.component.html',
-  styleUrl: './buscador.component.scss'
+  styleUrls: ['./buscador.component.scss']
 })
 export class BuscadorComponent {
   booksData: any;
   name: string = '';
-  books: any[] = []
-  book?: Book
+  books: any[] = [];
+  book?: Book;
 
-  constructor(private booksApiService: BooksApiService,
-    private bookService: BookServiceService
-  ) { }
+  constructor(private booksApiService: BooksApiService, private bookService: BookServiceService) { }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void { }
 
   searchBook() {
-    this.books = []
+    this.books = [];
     this.booksApiService.getBooks(this.name).subscribe(data => {
-      this.booksData = Object.assign({}, data)
-      this.booksData.items.map((item: any) => {
-        this.books.push(item.volumeInfo)
-      })
-    })
-    this.name = ''
+      this.booksData = Object.assign({}, data);
+      this.booksData.items.forEach((item: any) => {
+        this.books.push(item.volumeInfo);
+      });
+    });
+    this.name = '';
   }
 
   addBook(name: string, genere: string, image: string, author: string) {

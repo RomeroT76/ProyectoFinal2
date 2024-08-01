@@ -42,16 +42,16 @@ export class FavoriteComponent implements OnInit {
     }
   }
 
- returnLoan(loanId: number): void {
-  this.loansService.returnLoan(loanId).subscribe({
-    next: () => {
-      console.log('Préstamo devuelto correctamente');
-      alert("Devolucion Exitosa");
-      this.loadUserLoans(); // Recargar los préstamos del usuario
-    },
-    error: (err) => {
-      console.error('Error al devolver el préstamo:', err);
-    }
-  });
-}
+  returnLoan(loanId: number): void {
+    this.loansService.returnLoan(loanId).subscribe({
+      next: () => {
+        console.log('Préstamo devuelto correctamente');
+        alert("Devolución Exitosa");
+        this.loadUserLoans(); // Recargar los préstamos del usuario
+      },
+      error: (err) => {
+        console.error('Error al devolver el préstamo:', err);
+      }
+    });
+  }
 }

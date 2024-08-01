@@ -1,18 +1,21 @@
 <header>
     <div class="interior">
-        <a routerLink='' class="logo"><img src="assets\logo.png" alt=""></a>
+        <a routerLink='' class="logo"><img src="assets/logo.png" alt="Logo"></a>
         <nav class="navegacion">
             <ul>
-                <li><a routerLink='/catalogouser'>Catálogo</a></li>
-                <li><a routerLink='/favorite'>Mis libros</a></li>
+                <li><a routerLink='/catalogouser'><i class="fas fa-book"></i> Catálogo</a></li>
+                <li><a routerLink='/favorite'><i class="fas fa-heart"></i> Mis libros</a></li>
                 <li class="submenu">
-                    <a>Opciones</a>
+                    <a><i class="fas fa-bars"></i> Opciones</a>
                     <ul class="subindex">
-                        <li><a routerLink='/edituser'>Editar perfil</a></li>
-                        <li><a (click)="logOut()">Cerrar Sesión</a></li>
+                        <li><a routerLink='/edituser'><i class="fas fa-user-edit"></i> Editar perfil</a></li>
+                        <li><a (click)="logOut()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
+        <div class="menu-toggle" (click)="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
     </div>
 </header>

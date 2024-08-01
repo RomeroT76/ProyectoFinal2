@@ -1,27 +1,26 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../../services/user-service.service';
 import { CoreServiceService } from '../../services/core-service.service';
+import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-ugestion',
   standalone: true,
-  imports: [FormsModule, RouterLink],
+  imports: [CommonModule, RouterModule],
   templateUrl: './ugestion.component.html',
-  styleUrl: './ugestion.component.scss'
+  styleUrls: ['./ugestion.component.scss']
 })
-export class UgestionComponent {
-
+export class UgestionComponent implements OnInit {
   users: any;
 
-  constructor(private userService: UserServiceService,
-    private coreService: CoreServiceService
-  ) { }
+  constructor(
+    private userService: UserServiceService,
+    private coreService: CoreServiceService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     this.getUsers();
   }
 
@@ -30,7 +29,7 @@ export class UgestionComponent {
       data => {
         this.users = data;
       }
-    )
+    );
   }
 
   deleteUser(email: string) {
@@ -44,8 +43,9 @@ export class UgestionComponent {
     });
   }
 
-  sendCredentials(email: string, rol:string) {
+  sendCredentials(email: string, rol: string) {
     this.coreService.setEuaEmail(email);
     this.coreService.setEuaRol(rol);
+    this.router.navigate(['/edituser']);
   }
 }

@@ -1,32 +1,30 @@
 <div class="container">
     <div class="content">
-
-        <ul>
+        <h1 class="catalog-title">Catálogo de Libros</h1>
+        <ul class="catalog-list">
             @for (book of catalog; track book) {
-            <li>
+            <li class="catalog-item">
                 <div class="libros-content">
-
                     <div class="libro-image">
-                        <img src="{{ book.image}}" alt="imagen de libro">  
-                                         
+                        <img src="{{ book.image }}" alt="Imagen de libro">  
                     </div>
                     <div class="libro-details">
                         <h2>{{ book.name }}</h2>
-                        <br>
-                        <h4>{{ book.genere }}</h4>
-                        <br>
-                        <h4>{{ book.author }}</h4>
-                        <br>
-                        <h4>{{ book.availability }}</h4>
-                        <br>
-                        <button class="btn-editar" (click)="updateBook(book)">Editar</button><br>
-                        <button class="btn-borrar" (click)="deleteBook(book.id)">Borrar</button><br>
+                        <p><strong>Género:</strong> {{ book.genere }}</p>
+                        <p><strong>Autor:</strong> {{ book.author }}</p>
+                        <p><strong>Disponibilidad:</strong> {{ book.availability }}</p>
+                        <div class="button-group">
+                            <button class="btn-editar" (click)="updateBook(book)">
+                                <i class="fas fa-edit"></i> Editar
+                            </button>
+                            <button class="btn-borrar" (click)="deleteBook(book.id)">
+                                <i class="fas fa-trash-alt"></i> Borrar
+                            </button>
+                        </div>
                     </div>
-
                 </div>
             </li>
             }
         </ul>
-
-</div>
+    </div>
 </div>
